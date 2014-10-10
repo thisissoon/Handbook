@@ -10,7 +10,7 @@ The big things from PEP8 are:
  * Indentation to 4 spaces
  * Line length guide of no more than 80 chars
 
-But we also have some good ideas about how we can make it a little be better.
+But we also have some good ideas about how we can make it a little bit better.
 
 ## Imports
 
@@ -89,9 +89,9 @@ If you have imported something and no longer use it remove it from the imports a
 
 ### Unused import statements
 
-In limited cases, unused import statements might be there for a good reason, such as making sure modules are imported in the right order, or . If this is the case, leave a `# noqa` comment after your import. This makes it easy for your fellow developers to see at a glance that the import is intended to be there even if it's not used, and ensures a test suite with a linter won't complain.
+In *limited* cases, unused import statements might be there for a good reason, such as making sure modules are imported in the right order. If this is the case, leave a `# noqa` comment after your import. This makes it easy for your fellow developers to see at a glance that the import is intended to be there even if it's not used, and ensures a test suite with a linter won't complain.
 
-```
+``` python
 from app.models import AppModel  # noqa
 ```
 
@@ -191,7 +191,7 @@ The above example is totally valid from a PEP008 stand point but this looks nice
         nullable=True)
 ```
 
-This isn't a hard rule however but use your disgression.
+This isn't a hard rule however but use your discretion.
 
 ## Docstrings and Comments
 
@@ -449,7 +449,7 @@ The above assumes there is a directory called `dependencies` in the root of the 
  * test.txt
  * dev.txt
 
-These contain dependancies on each line like a standard pip requirements file.
+These contain dependencies on each line like a standard pip requirements file.
 
 ## Testing Frameworks
 
