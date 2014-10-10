@@ -87,6 +87,14 @@ from safelogger import getMultiProcessLogger
 
 If you have imported something and no longer use it remove it from the imports at the top of the file. Dead imports make things messy.
 
+### Unused import statements
+
+In limited cases, unused import statements might be there for a good reason, such as making sure modules are imported in the right order, or . If this is the case, leave a `# noqa` comment after your import. This makes it easy for your fellow developers to see at a glance that the import is intended to be there even if it's not used, and ensures a test suite with a linter won't complain.
+
+```
+from app.models import AppModel  # noqa
+```
+
 ## Strings
 
 ### Doubles or Singles
