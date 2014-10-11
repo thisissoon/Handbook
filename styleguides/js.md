@@ -1,5 +1,5 @@
 # JavaScript Style Guide
-Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on the javascript styleguide from [Airbnb](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide).
+Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on the javascript styleguide from [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md).
 
 
 ## Table of Contents
