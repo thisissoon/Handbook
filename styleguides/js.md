@@ -252,15 +252,22 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## Functions
 
+  - Avoid declaring anonymous functions as it makes it harder to debug in a stack trace.
+  - Always store functions in variables or objects.
   - Function expressions:
 
     ```javascript
-    // anonymous function expression
+    // bad: anonymous function expression
     var anonymous = function() {
       return true;
     };
 
-    // named function expression
+    // bad: not stored in variable or object
+    function named() {
+      return true;
+    };
+
+    // good: named function expression
     var named = function named() {
       return true;
     };
