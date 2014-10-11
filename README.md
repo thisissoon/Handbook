@@ -10,7 +10,7 @@ We want to foster a culture where each developer can grow and contribute to the 
  * [Python](styleguides/python.md)
 
 ## Your Editor
-Your development environment is something thats very personal to you and how you work so we will never enforce a specific editor or terminal emulator or operating system upon you (but VIM rocks), so your free to set your system up how you like but ZSH is a cool alternative to the regular bash shell which you might like, FISH is also cool.
+Your development environment is something that is very personal to you and how you work so we will never enforce a specific editor or terminal emulator or operating system upon you (but VIM rocks), so your free to set your system up how you like but ZSH is a cool alternative to the regular bash shell which you might like, FISH is also cool.
 
 ### `~/.editorconfig`
 Having said we won't enforce what editor you use we do however ask you install a plugin for it called [Editor Config](http://editorconfig.org/). This plugin allows us to set some basic syntax standards across a wide range of languages for the team which will ensure spaces are used instead of tabs for Python, 2 spaces are used for YAML and so forth.
@@ -28,7 +28,7 @@ Security is one of the most important things to get right in software developmen
 Never ever ever check in passwords or secret keys etc into version control. Credentials of any kind should be loaded from an OS environment variable that can be set during deployment or into a key value store which can be used to access the data. ETCD is a good way to store configuration data and handle service discovery.
 
 ### Encrypt your Hard drive
-Just incase you loose your laptop or someone yanks it from your bag after a heavy night encrypt your hard drive so data stored on there cannot be decoded. For OSX you just need to turn on FileValut.
+Just in case you loose your laptop or someone yanks it from your bag after a heavy night encrypt your hard drive so data stored on there cannot be decoded. For OSX you just need to turn on FileVault.
 
 ## Version Control
 Version control is extremely important, we use Git because its flexible and you can always work your way out of any mistake.
@@ -52,8 +52,8 @@ We use two 3rd party services for hosting our code. We use BitBucket for private
 ### General Git Guidelines
 We only have a couple of rules when it comes to Git:
 
- I. Never force push on the develop / master branches - its the nuclear option, the last resort.
- I. Only rebase your local history
+1. Never force push on the develop / master branches - its the nuclear option, the last resort.  
+1. Only rebase your local history
 
 ### Pull request guidelines
 When issuing pull requests there are a couple of things to consider the following:
@@ -74,7 +74,7 @@ Don't be this guy!
 
 ![I don't always test my code, but when I do, I do it in production](https://lh6.googleusercontent.com/-Oqv0TQ29P4Y/UWBZBBYl6GI/AAAAAAAAO_E/V1RDLPsoeYQ/w800-h800/production.jpg)
 
- Continuous Integration ===
+### Continuous Integration
 Services such as Travis or Drone.io allow us to automatically run tests suites in a clean environment every time and takes the head ache away of maintaining something like Jenkins. We have gone for Drone.io which is a docker implemented system with a simple configuration system and used by the Googles. On pushes to the master / develop and on pull requests the test suite will be run and the result emailed to us. It also has cool looking badges!
 
 ## Releasing
@@ -134,5 +134,6 @@ When code is being released the Next Release section should just be amended with
 ### Be descriptive
 When adding entries to the change log make sure you are descriptive but concise. Also ensure to prepend your description of the change with the following:
 
-* Hotfix: Emergency mission critical bugs * Bug: Bugs when can wait till the next release * Feature: A new feature added to the code base
-
+* Hotfix: Emergency mission critical bugs 
+* Bug: Bugs when can wait till the next release 
+* Feature: A new feature added to the code base
