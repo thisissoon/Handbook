@@ -9,6 +9,7 @@ We want to foster a culture where each developer can grow and contribute to the 
 ## Style Guides
  * [Python](styleguides/python.md)
  * [CSS](styleguides/css.md)
+ * [JavaScript](styleguides/js.md)
 
 ## Your Editor
 Your development environment is something that is very personal to you and how you work so we will never enforce a specific editor or terminal emulator or operating system upon you (but VIM rocks), so your free to set your system up how you like but ZSH is a cool alternative to the regular bash shell which you might like, FISH is also cool.
