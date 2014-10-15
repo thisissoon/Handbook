@@ -722,12 +722,12 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## Whitespace
 
-  - Use tabs set to 4 spaces
+  - Use soft tabs set to 4 spaces
 
     ```javascript
     // bad
     function() {
-    ∙∙∙∙var name;
+    ∙∙var name;
     }
 
     // bad
@@ -737,7 +737,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     // good
     function() {
-    —---var name;
+    ∙∙∙∙var name;
     }
     ```
 
@@ -751,19 +751,19 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     // good
     function test() {
-        console.log("test");
+      console.log("test");
     }
 
     // bad
     dog.set("attr",{
-        age: "1 year",
-        breed: "Bernese Mountain Dog"
+      age: "1 year",
+      breed: "Bernese Mountain Dog"
     });
 
     // good
     dog.set("attr", {
-        age: "1 year",
-        breed: "Bernese Mountain Dog"
+      age: "1 year",
+      breed: "Bernese Mountain Dog"
     });
     ```
 
