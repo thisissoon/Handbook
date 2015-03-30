@@ -1,0 +1,113 @@
+base: &base
+  image: soon/doit-api:develop
+  rm: true
+  interactive: true
+  tty: true
+  link:
+    - doitapi_postgres_1:db
+    - doitapi_redis_1:redis
+    - doitapi_rabbitmq_1:rabbit
+    - doitapi_memcached_1:memcached
+  env:
+    - C_FORCE_ROOT=True
+    - REDIS_SERVER_URI=redis://redis:6379/
+    - SQLALCHEMY_DATABASE_URI=postgresql://doit:doit@db:5432/doitmodels
+    - SQLALCHEMY_TEST_DATABASE_URI=postgresql://doit:doit@db:5432/doittest
+    - DOITTRUST_FACEBOOK_APP_ID=$FACEBOOK_APP_ID
+    - MANDRILL_API_KEY=$MANDRILL_API_KEY
+    - AWS_S3_ACCESS_KEY=$AWS_ACCESS_KEY
+    - AWS_S3_SECRET_KEY=$AWS_SECRET_KEY
+    - MT_DEFAULT_TENANT=doittrust
+    - EXPORT_BUCKET_NAME=soon.testing123
+    - CELERY_BROKER_URL=amqp://doit:doit@rabbit:5672//
+    - CELERY_RESULT_BACKEND=amqp://doit:doit@rabbit:5672//
+    - LOGSTASH_SERVER=$DOCKER_IP
+    - MEMCACHED_SERVER=memcached
+    - MEMCACHED_PORT=11211
+  volume:
+    - /Users/radeklos/Documents/dev/Doit-API:/doit
+  # volumes-from:
+  #   - doit-data
+
+api:
+  <<: *base
+  publish:
+    - 5000:5000
+  command: ./run.sh
+  args:
+    - --ini
+    - /doit/uwsgi.ini
+    - --http
+    - 0.0.0.0:5000
+    - --python-autoreload
+    - 1
+    - --honour-stdin
+    - --processes
+    - 1
+
+admin:
+  <<: *base
+  publish:
+    - 5000:5000
+  command: uwsgi
+  args:
+    - --ini
+    - /doit/doit/admin/uwsgi.ini
+    - --http
+    - 0.0.0.0:5000
+    - --python-autoreload
+    - 1
+    - --honour-stdin
+    - --processes
+    - 1
+
+celery:
+  <<: *base
+  command: celery
+  args:
+    - -A
+    - doit.ext.celery
+    - worker
+    - -l
+    - info
+    - -c
+    - 12
+    - -P
+    - gevent
+
+celery-beat:
+  <<: *base
+  command: celery
+  args:
+  args:
+    - -A
+    - doit.ext.celery
+    - beat
+    - -l
+    - info
+
+test:
+  <<: *base
+  command: /bin/bash
+  publish:
+    - 666:666
+  env:
+    - C_FORCE_ROOT=True
+    - SQLALCHEMY_DATABASE_URI=postgresql://doit:doit@db:5432/doitmodels
+    - SQLALCHEMY_TEST_DATABASE_URI=postgresql://doit:doit@db:5432/doittest
+    - REDIS_SERVER_URI=redis://redis:6379/
+    - FACEBOOK_APP_ID=$FACEBOOK_APP_ID
+    - MANDRILL_API_KEY=$MANDRILL_API_KEY
+    - AWS_S3_ACCESS_KEY=$AWS_ACCESS_KEY
+    - AWS_S3_SECRET_KEY=$AWS_SECRET_KEY
+    - MT_DEFAULT_TENANT=doittrust
+    - EXPORT_BUCKET_NAME=soon.testing123
+    - CELERY_BROKER_URL=amqp://doit:doit@rabbit:5672//
+    - CELERY_RESULT_BACKEND=amqp://doit:doit@rabbit:5672//
+    - LOGSTASH_SERVER=$DOCKER_IP
+    - MEMCACHED_SERVER=doitapi_memcached_1
+    - MEMCACHED_PORT=11211
+
+bash:
+  <<: *base
+  command: /bin/bash
