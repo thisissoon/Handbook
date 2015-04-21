@@ -56,7 +56,7 @@ added an extra one above these for future imports:
 * Application Imports
 
 Within those groups imports should be ordered alphabetically. The following example shows how difficult
-unorganised imports are to read:
+un-organised imports are to read:
 
 ``` python
 import signal
@@ -88,20 +88,16 @@ import pickle
 import signal
 import sys
 import time
-
 from dateutil.parser import parse
 from dateutil.tz import tzutc
 from safelogger import getMultiProcessLogger
 
 import requests
-
 from thirdparty.library import something
 
 from application.http import OK
 from application.models import Foo
 ```
-
-Note how ``import`` and ``from`` statements are always sperated by new lines and how the imports are grouped.
 
 ### Don't leave dead imports hanging around
 
