@@ -54,7 +54,7 @@ We use two 3rd party services for hosting our code. We use BitBucket for private
 ### General Git Guidelines
 We only have a couple of rules when it comes to Git:
 
-1. Never force push on the develop / master branches - its the nuclear option, the last resort.  
+1. Never force push on the develop / master branches - its the nuclear option, the last resort.
 1. Only rebase your local history
 
 ### Pull request guidelines
@@ -78,6 +78,24 @@ Don't be this guy!
 
 ### Continuous Integration
 Services such as Travis or Drone.io allow us to automatically run tests suites in a clean environment every time and takes the head ache away of maintaining something like Jenkins. We have gone for Drone.io which is a docker implemented system with a simple configuration system and used by the Googles. On pushes to the master / develop and on pull requests the test suite will be run and the result emailed to us. It also has cool looking badges!
+
+## Environment
+
+### Fig and Fugu
+We are using [Fig](http://www.fig.sh/) for setting up our environment. A fig file is placed in each our repositories and defining system requirements. Unfortunately Fig runs everything in really monolithic way, so for development we recommend [Fugu](https://github.com/mattes/fugu). Fugu defines parameters for container to run, which can be easily restarted or replaced by another. To start up an admin container, which is defined in an Fugu [example file](https://github.com/thisissoon/Handbook/blob/feature/environment/examles/fugu_example.yaml) you can run following:
+```
+fugu run admin
+```
+
+### Start containers automatically (autoenv)
+If you don't want to run required containers manually, you can set up [autoenv](https://github.com/kennethreitz/autoenv) and run then when you `cd` into your repository directory.
+```
+docker start doitapi_postgres_1
+docker start doitapi_redis_1
+docker start doitapi_rabbitmq_1
+docker start doitapi_memcached_1
+```
+
 
 ## Releasing
 
@@ -136,6 +154,6 @@ When code is being released the Next Release section should just be amended with
 ### Be descriptive
 When adding entries to the change log make sure you are descriptive but concise. Also ensure to prepend your description of the change with the following:
 
-* Hotfix: Emergency mission critical bugs 
-* Bug: Bugs when can wait till the next release 
+* Hotfix: Emergency mission critical bugs
+* Bug: Bugs when can wait till the next release
 * Feature: A new feature added to the code base
