@@ -47,24 +47,36 @@ os.path.join(...)  # more explicit than just join()
 
 ### Organisation
 
-Keep your imports organised alphabetically and separate `from` and `import` keywords, for example:
+We follow the Google style guide for Import organisation. This defines 3 distinct import groups, we have
+added an extra one above these for future imports:
+
+* Future Imports
+* Standard Lib Imports
+* Third Party Imports
+* Application Imports
+
+Within those groups imports should be ordered alphabetically. The following example shows how difficult
+unorganised imports are to read:
 
 ``` python
-from __future__ import division
 import signal
 import sys
 import multiprocessing
+from __future__ import division
 import requests
 from dateutil.parser import parse
 from dateutil.tz import tzutc
 import datetime
+from thirdparty.library import something
 import pickle
 import time
 import logging
 from safelogger import getMultiProcessLogger
+from application.models import Foo
+from application.http import OK
 ```
 
-This is hard to read and difficult to find specific imports, it would be much better like this:
+Follow the style guide, the above should be organised as such:
 
 ``` python
 from __future__ import division
@@ -73,7 +85,6 @@ import datetime
 import logging
 import multiprocessing
 import pickle
-import requests
 import signal
 import sys
 import time
@@ -81,7 +92,16 @@ import time
 from dateutil.parser import parse
 from dateutil.tz import tzutc
 from safelogger import getMultiProcessLogger
+
+import requests
+
+from thirdparty.library import something
+
+from application.http import OK
+from application.models import Foo
 ```
+
+Note how ``import`` and ``from`` statements are always sperated by new lines and how the imports are grouped.
 
 ### Don't leave dead imports hanging around
 
