@@ -111,6 +111,27 @@ In *limited* cases, unused import statements might be there for a good reason, s
 from app.models import AppModel  # noqa
 ```
 
+### isort
+
+Each project should contain a ``.isort.cfg``. This will contain configuration for the python library ``isort``. This allows imports to be sorted in a standard way in Vim or Sublime. Install ``isort`` with ``pip`` and install your particular editors plugin:
+
+* Vim: https://github.com/fisadev/vim-isort
+* Sublime: https://github.com/thijsdezoete/sublime-text-isort-plugin
+
+Here is an example `.isort.cfg`:
+
+``` cfg
+[settings]
+line_length=80
+multi_line_output=3
+known_first_party=fm
+default_section=THIRDPARTY
+import_heading_stdlib=Standard Libs
+import_heading_thirdparty=Third Pary Libs
+import_heading_firstparty=First Party Libs
+lines_after_imports=2
+```
+
 ## Strings
 
 ### Doubles or Singles
