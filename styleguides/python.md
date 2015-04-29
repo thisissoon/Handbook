@@ -212,17 +212,23 @@ def my_long_function(arg1
 
 ### Vertical Code > Horizontal Code
 
-Code is more difficult to read horizontally than vertically, so it's better for code to long long than wide, for example:
+Code is more difficult to read horizontally than vertically, especially when you have different indent levels, for example:
 
 ``` python
     affiliate_id = db.Column(db.Integer, db.ForeignKey('organisation.id'),
                              nullable=True)
+    another = db.Column(db.Integer, db.ForeignKey('organisation.id'),
+                        nullable=True)
 ```
 
 The above example is totally valid from a PEP008 stand point but this looks nicer and is easier to pick out each argument:
 
 ``` python
     affiliate_id = db.Column(
+        db.Integer,
+        db.ForeignKey('organisation.id'),
+        nullable=True)
+    another = db.Column(
         db.Integer,
         db.ForeignKey('organisation.id'),
         nullable=True)
