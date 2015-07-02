@@ -157,3 +157,48 @@ When adding entries to the change log make sure you are descriptive but concise.
 * Hotfix: Emergency mission critical bugs
 * Bug: Bugs when can wait till the next release
 * Feature: A new feature added to the code base
+
+## Docker Tags
+
+We use docker heavily as part of our development and deployment process, the tagging we use is tied to our git branch management.
+
+* `master`: Master will always be our stable production code, so we tag docker images built from master as `prod`
+* `develop`: Develop will contain our latest code that will be pushed to QA and production shortly, so these images are tagged with `latest`
+* `release/xxx`: Release branches contain code pending production release and so we tag these images with `qa`
+
+In the case of `prod` and `qa` images we will also tag the image with a version number so it's always easy to rollback to
+a specific version of the code.
+
+This is all handled during our CI build process.
+
+### Examples
+
+Pulling the latest production image:
+
+```
+docker pull soon/some-project:prod
+```
+
+Pulling a specific version of production code:
+
+```
+docker pull soon/some-project:2015.5.12.2
+```
+
+Pulling the current QA release:
+
+```
+docker pull soon/some-project:qa
+```
+
+Pulling a specific QA version:
+
+```
+docker pull soon/some-project:2015.5.12.2.qa
+```
+
+Pulling the latest development version (with our without the `latest` tag since `latest` is the default in docker):
+
+```
+docker pull soon/some-project / docker pull soon/some-project:latest
+```
