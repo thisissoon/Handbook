@@ -151,8 +151,7 @@ There is a PEP for doc strings: [PEP 257](http://legacy.python.org/dev/peps/pep-
 
 ``` python
 def foo():
-    """
-    My fancy func
+    """My fancy func
     """
 
     return 'fancy'
@@ -238,31 +237,25 @@ This isn't a hard rule however but use your discretion.
 
 ## Docstrings and Comments
 
-A docstring should come directly after a function definition and should contain a brief description of what the function does, any arguments the function takes and the type of returned data if applicable. Docstrings should use double quotes and start on new lines.
+A docstring should come directly after a function definition and should contain a brief description of what the function does, any arguments the function takes and the type of returned data if applicable.
+Docstrings should use double quotes and start on new lines.
 
 Comments should start with a hash (#) and should be limited to a single line if possible.
 
 Also check out PEP 257.
 
-We use a Sphinx plugin called Napoleon which allows you to write cleaner doc strings for auto documentation generation. Read about it [here](http://sphinxcontrib-napoleon.readthedocs.org/en/latest/).
+We will use Google Style Docstrings (https://google-styleguide.googlecode.com/svn/trunk/pyguide.html#Comments) which Sphinx can understand since 1.3.
 
 ``` python
 def foo(arg1, arg2=False):
-    """
-    Augments arguments to return foobar'ed values.
+    """Augments arguments to return foobar'ed values.
 
-	Arguments
-	---------
-    arg1: str
-    	The first value to augment
+	Arguments:
+        arg1 (str): The first value to augment
+        arg2 (bool): Do really bad things -- Default False
 
-    arg2: bool
-    	Do really bad things -- Default False
-
-	Returns
-	-------
-    str
-    	A string thats been made cool yo!
+	Returns:
+        str: A string thats been made cool yo!
     """
 
     do_pythony_things()  # Inline comments, 2 spaces away
@@ -435,18 +428,14 @@ It still might be a good idea to keep dependencies in a file for sanity, in our 
 
 ``` python
 def read_dependencies(filename):
-    """ Read requirements file and process them into a list
+    """Read requirements file and process them into a list
     for usage in the setup method.
 
-	Arguments
-	---------
-	filename : str
-		Path to the file to read line by line
+	Arguments:
+        filename (str): Path to the file to read line by line
 
-	Returns
-	-------
-	list:
-		List of requirements
+	Returns:
+        list: List of requirements
     """
 
     dependencies = []
