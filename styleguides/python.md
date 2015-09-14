@@ -292,8 +292,8 @@ This particular PEP is regarding always setting file encodings at the top of fil
 # encoding: utf-8
 
 """
-thing.foo.bar
-=============
+Module name i.e Serializers
+---------------------------
 
 Does some cool things with python.
 """
