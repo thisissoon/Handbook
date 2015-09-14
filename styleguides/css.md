@@ -288,17 +288,17 @@ When styling a component, start with an class namespace and nest styling within 
 
   // Direct descendant selector > for list items
   > .list-item {
-      list-style-type: disc;
+    list-style-type: disc;
   }
 
   // Don't do this as category list may contain
   // other links which you don't want to style this color
   a {
-     color: #f00000;
+    color: #f00000;
   }
 }
 
-``` 
+```
 
 ## CSS Specificity guidelines
 
