@@ -722,10 +722,10 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## Whitespace
 
-  - Use soft tabs set to 4 spaces
+  - Use soft tabs set to 2 spaces
 
     ```javascript
-    // bad
+    // good
     function() {
     ∙∙var name;
     }
@@ -735,7 +735,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ∙var name;
     }
 
-    // good
+    // bad
     function() {
     ∙∙∙∙var name;
     }
