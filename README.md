@@ -50,7 +50,12 @@ Example branch schema:
  * `feature/x`: Feature branches are where current work is being done on active features by one or many developers. Once finished the feature should be pull requested into the develop branch and give a shout out for someone to give it a look over. To start a new feature branch just run git flow feature start my-new-thing and when you are done just run git flow feature finish my-new-thing and it will be merged with the develop branch.
 
 ### Where repositories live
-We use two 3rd party services for hosting our code. We use BitBucket for private archived closed source projects and GitHub for open source and active closed source projects. You will need accounts on both services and you will need to add your SSH pub key to them.
+We use three services for hosting our code:
+ * Our own [Gitlab](https://git.soon.build) instance for closed source projects
+ * [GitHub](github.com/thisissoon) for open source, and a selection of external closed source projects
+ * [BitBucket](https://bitbucket.org/soon_) for private archived closed source projects
+
+You can access our Gitlab with your `@thisissoon.com` google account. You will need Github/Bitbucket accounts to access those repos. You should add your SSH pub key to all the services for easy authentication.
 
 ### General Git Guidelines
 We only have a couple of rules when it comes to Git:
