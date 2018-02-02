@@ -8,6 +8,7 @@ We want to foster a culture where each developer can grow and contribute to the 
 
 ## Style Guides
  * [Python](styleguides/python.md)
+ * [Golang](https://golang.org/doc/effective_go.html)
  * [CSS](styleguides/css.md)
  * [JavaScript](styleguides/js.md)
 
